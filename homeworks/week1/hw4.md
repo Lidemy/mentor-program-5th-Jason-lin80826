@@ -5,7 +5,7 @@ Git 將 "尚未被提交" 的檔案分成三個區塊，由上而下分別是
 2. **Changes not staged for commit**（被更動但尚未要提交的檔案）
 3. **Untracked files**（未被追蹤的檔案）  
 
-當我們初始化過後，資料內原有的檔案都會是 **Untracked files** 此時我們需要輸入`git add .`便可以將所有檔案一次全部變為 **Changes to be committed**，若之後有更改檔案的話狀態會變為 **Changes not staged for commit** 則需要再輸如一次 `git add .`來將狀態變回準備 commit 的狀態，然後`git commit`指令就會形成一個 「儲存庫」。 
+當我們初始化過後，資料內原有的檔案都會是 **Untracked files** 此時我們需要輸入`git add .`便可以將所有檔案一次全部變為 **Changes to be committed**，若之後有更改檔案的話狀態會變為 **Changes not staged for commit** 則需要再輸入一次 `git add .`來將狀態變回準備 commit 的狀態，然後`git commit`指令就會形成一個 「儲存庫」。 
 
 所以我們一般的流程會是 :
 1. git init
