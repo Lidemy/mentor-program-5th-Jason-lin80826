@@ -23,7 +23,7 @@ function solve(lines) {
     const A = temp[0]
     const B = temp[1]
     const K = Number(temp[2])
-    console.log(compare(A, B, K))
+    console.log(compare(A, B,K))
   }
 }
 function compare(A, B, K) {
