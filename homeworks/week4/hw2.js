@@ -23,6 +23,10 @@ function setOptions(action, parm, parm2) {
       options.url = `${baseURL + parm}`
       break
     case 'create':
+      if (!parm) {
+        console.log('請輸入書名')
+        return
+      }
       options.method = 'POST'
       options.url = baseURL
       options.body = `name=${parm}`
@@ -43,10 +47,12 @@ request(options, (err, response, body) => {
       books.forEach((element) => {
         console.log(element)
       })
+    } else if (Object.keys(result).length === 0) {
+      console.log('找不到此 id ')
     } else {
       console.log(result.name)
     }
   } catch (error) {
-    console.log(error)
+    console.log('無效的操作')
   }
 })
