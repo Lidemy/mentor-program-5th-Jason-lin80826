@@ -42,11 +42,11 @@ async function getAllData() {
     const sec = getSecData()
     const [arr, arr2] = await Promise.all([first, sec])
     arr.forEach((element) => {
-      console.log(`${element._id} ${element.channel.status} ${count}`)
+      console.log(`實況id: ${element._id}，name: ${element.channel.display_name}，筆數: ${count}`)
       count++
     })
     arr2.forEach((element) => {
-      console.log(`${element._id} ${element.channel.status} ${count}`)
+      console.log(`實況id: ${element._id}，name: ${element.channel.display_name}，筆數: ${count}`)
       count++
     })
   } catch (error) {
