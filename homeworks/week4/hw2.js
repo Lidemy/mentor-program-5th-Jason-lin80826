@@ -47,10 +47,7 @@ request(options, (err, response, body) => {
   try {
     const result = JSON.parse(body)
     if (Array.isArray(result)) {
-      const books = result.map((book) => `${book.id} ${book.name}`)
-      books.forEach((element) => {
-        console.log(element)
-      })
+      result.forEach((item) => console.log(`${item.id} ${item.name}`))
     } else if (action === 'delete' && response.statusCode === 200) {
       console.log('刪除成功')
     } else if (Object.keys(result).length === 0) {
