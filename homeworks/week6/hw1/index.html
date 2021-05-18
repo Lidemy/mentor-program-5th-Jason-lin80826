@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <style>
         .navbar{
-            box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
             padding: 0 20px;
         }
         .navbar .wrapper {
@@ -23,7 +22,7 @@
             margin: 0 auto;
             padding: 12px 24px;
         }
-        .navbar__site-name{
+        .navbar__logo{
             font-family: Questrial;
             font-size: 36px;
             color: #489846;
@@ -74,7 +73,7 @@
             margin: 0;
             color: white;
             font-size: 60px;
-            position: relative;
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
@@ -113,11 +112,11 @@
         .button:hover {
             transform: scale(1.1);
         }
-        .btn-order {
+        .btn--order {
             background-color: #a8e8e1;
             display: inline-block; 
         }
-        .btn-query {
+        .btn--query {
             background-color: #f9f9b5;
             display: inline-block; 
             margin-left: 20px;
@@ -144,8 +143,8 @@
             margin-top: 60px;
         }
         .comment_wrapper {
-            width: 400px;
-            height: 205px;
+            width: 32%;
+            /* height: 255px; */
             border-radius: 5px;
             box-shadow: -1.4px -1.4px 4px 0 #d8eaef;
             border: solid 1px #c7e5ec;
@@ -163,9 +162,8 @@
             border-radius: 50%;
             z-index: 2;
             position: absolute;
-            top: 50%;
             left: 50%;
-            transform: translate(-50%,-150%);
+            transform: translate(-50%,-50%);
         }
         footer {
             margin-top: 42px;
@@ -201,10 +199,10 @@
             .navbar .wrapper {
                 height: 108px;
                 flex-direction: column;
-                justify-content: column;
+                justify-content: center;
                 padding: 0px;
             }
-            .navbar__site-name {
+            .navbar__logo {
                 margin-top: 10px;
             }
             .navbar__list {
@@ -218,7 +216,7 @@
                 border-radius: 0;
                 text-align: center;
             }
-            .btn-query {
+            .btn--query {
                 margin-left: 0; 
                 margin-top: 10px;
             }
@@ -230,6 +228,9 @@
             }
             .comment {
                 flex-wrap: wrap;
+            }
+            .comment_wrapper {
+                width: 100%;
             }
             .footer__top .wrapper {
                 flex-direction: column-reverse;
@@ -247,7 +248,7 @@
 <body>
     <nav class='navbar'>
         <div class="wrapper">
-            <div class="navbar__site-name">
+            <div class="navbar__logo">
                 Just A Bite!
             </div>
             <ul class="navbar__list">
@@ -274,10 +275,10 @@
                 咬一口不只賣餐點，我們希望能夠讓大家愛上料理的魅力，餐館特意打造全開放式廚房，烹調透明化，也不定時舉辦美食廚房DIY，讓大家體驗不需要過多調味，就能擁有千變萬化的食物口感。
             </p>
             <div class="buttons">
-                <div class="button btn-order">
+                <div class="button btn--order">
                     我要點餐
                 </div>
-                <div class="button btn-query">
+                <div class="button btn--query">
                     查詢訂單
                 </div>
             </div>
