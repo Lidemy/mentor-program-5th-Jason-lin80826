@@ -15,21 +15,20 @@
       box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
       padding: 54px 298px 35px 39px;
     }
-    h1 {
-      font-size: 36px;
+    h1,h2,h3,p {
       font-family: MicrosoftJhengHei;
     }
+    h1 {
+      font-size: 36px;
+    }
     h2 {
-      font-family: MicrosoftJhengHei;
       font-size: 14px;
     }
     h3 {
-      font-family: MicrosoftJhengHei;
       font-size: 16px;
       color: red;
     }
     p {
-      font-family: MicrosoftJhengHei;
       font-size: 14px;
     }
     label div {
@@ -40,7 +39,7 @@
     label div span {
       color: red;
     }
-    .section input {
+    .information input {
       width: 287px;
       height: 23px;
       margin-top: 20px;
@@ -83,21 +82,21 @@
       <h2>活動日期：2020/12/10 ~ 2020/12/11</h2>
       <h2>活動地點：台北市大安區新生南路二段1號</h2>
       <h3>*必填</h3>
-      <section class="section">
+      <section class="information">
         <label for="name">
           <div>暱稱: <span>*</span></div>
           <input type="text" id="name" placeholder="您的回答">
         </label> 
         <label for="email">
           <div>電子郵件: <span>*</span></div>
-          <input type="text" id="email" placeholder="你的電子郵件">
+          <input type="email" id="email" placeholder="你的電子郵件">
         </label>   
         <label for="phone">
           <div>手機號碼: <span>*</span></div>
-          <input type="text" id="phone" placeholder="你的手機號碼">
+          <input type="number" id="phone" placeholder="你的手機號碼">
         </label>       
       </section>
-      <section class="section_two">
+      <section>
         <label for="method">
           <div>報名類型: <span>*</span></div>
           <input type="radio" class="radio-button" name="mehtod"> 躺在床上用想像力實作 
@@ -105,7 +104,7 @@
           <input type="radio" class="radio-button" name="mehtod"> 趴在地上滑手機找現成的
         </label>    
       </section>
-      <section class="section">
+      <section class="information">
         <label for="source">
           <div>怎麼知道這個活動的? <span>*</span></div>
           <input type="text" id="source"  placeholder="您的回答">
