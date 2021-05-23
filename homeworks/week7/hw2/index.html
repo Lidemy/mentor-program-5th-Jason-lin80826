@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐廳官網</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <style>
+        .navbar{
+            box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+            padding: 0 20px;
+        }
+        .navbar .wrapper {
+            height: 84px;
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 12px 24px;
+        }
+        .navbar__site-name{
+            font-family: Questrial;
+            font-size: 36px;
+            color: #489846;
+        }
+        .navbar__list{
+            list-style: none;
+            display: flex;
+            margin: 0px;
+            padding: 0px;
+            font-size: 18px;
+        }
+        .navbar__list li{
+            margin-left: 12px;
+            border-radius: 8px;
+            transition: background  0.2s;
+        }
+        .navbar__list li.active,
+        .navbar__list li:hover{    
+            background-color: #ff7286;
+        }
+        .navbar__list li.active a,
+        .navbar__list li a:hover {
+            color: white;
+
+        }
+        .navbar__list li a {
+            text-decoration: none;
+            color: black;
+            padding: 12px 24px;
+            display: block;
+        }
+        h2 {
+            margin: 0;
+        }
+        .section {
+            text-align: center;
+            margin-top: 80px;
+        }
+        .section__title {
+            margin-bottom: 36px;
+            font-size: 36px;
+            border-left: #a3dea2 15px solid;
+            display: inline-block;
+            padding-left: 16px;
+        }
+        .questions{
+            width: 810px;
+            margin: 15px auto;
+        }
+        .questions li{
+            cursor: pointer;
+            list-style-type:none;
+            font-family: MicrosoftJhengHei;
+            font-size: 18px;
+            margin: 60px 74px 28px 16px;
+            border-bottom: #a6e2c0 1px solid;
+            padding-bottom: 15px;
+        }
+        .questions li span {
+            color: #70b282;
+            font-family: Questrial;
+            font-size: 24px;
+        }
+        .content {
+            margin-top: 10px;
+            padding-left: 41px;
+            font-family: MicrosoftJhengHei;
+            font-size: 16px;
+            display: none;
+        }
+        footer {
+            margin-top: 42px;
+        }
+        .footer__top {
+            background-color: #e8efee;
+            padding: 32px 0px;
+            color:#484848;
+        }
+        .footer__top .wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer-site {
+            color: #489846;
+            font-size: 36px;
+        }
+        .footer_info {
+            margin-right: 16px;
+        }
+        .footer_info div+div {
+            margin-top: 10px;
+        }
+        .footer__bottom {
+            padding: 12px;
+            color: white;
+            background-color: #35564b;
+            font-size: 16px;
+            font-family: MicrosoftJhengHei;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class='navbar'>
+        <div class="wrapper">
+            <div class="navbar__site-name">
+                Just A Bite!
+            </div>
+            <ul class="navbar__list">
+                <li class="active"><a href="#">抽個大獎</a></li>
+                <li><a href="#">我要點餐</a></li>
+                <li><a href="#">查詢訂單</a></li>
+                <li><a href="#">常見問題</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <section class='section'>   
+            <h2 class="section__title">
+                FAQ - 常見問題
+            </h2>
+        </section>
+    </div>
+    <ul class="questions">
+        <li class="question">
+            <span>Q1:</span> 如何辦理退貨？
+            <div class="content" id='1'>
+                顧客於商品送達的7天內皆可辦理線上退貨，在完成訂購後15分鐘系統即無法取消訂單。 如您發現無法使用線上退貨申請時，請使用客服信箱或電話連繫客服中心
+            </div>
+        </li>
+        <li class="question">
+            <span>Q2:</span> 目前提供哪些付款方式？
+            <div class="content" id='2'>
+                基本上都以刷卡為主
+            </div>
+        </li>
+        <li class="question"> 
+            <span>Q3:</span> 線上刷卡如何操作呢？
+            <div class="content" id='3'>
+                線上刷卡的使用方式也超簡單，只要您確認您當次的購物清單與金額都無誤，就可立即到匯款上傳系統，登入個人帳號密碼後，點選"線上刷卡方式"，確認收件住址後，再進行刷卡確認程序即可～
+            </div>
+        </li>
+        <li class="question">
+            <span>Q4:</span> 如何查詢目前訂單的處理情況？
+            <div class="content" id='4'>
+                請點選查詢訂單的按鈕
+            </div>
+        </li>
+        <li class="question">
+            <span>Q5:</span> 訂單成立後，是否可以取消或是更改訂單數量及商品？
+            <div class="content" id='5'>
+                請點取消訂單的按鈕
+            </div>
+        </li>
+        <li class="question">
+            <span>Q6:</span> 我想購買的商品已經缺貨，什麼時候會進貨呢？
+            <div class="content" id='6'>
+                這個狀況不一定
+            </div>
+        </li>
+    </ul>
+    <footer>
+        <div class="footer__top">
+            <div class="wrapper">
+                <div class="footer_info">
+                    <div>餐館地址: 天上地下天堂路三分之一里六段520號</div>
+                    <div>訂位專線：02-1314-5566</div>
+                    <div>營業時間：週一〜週五 09:00~18:00 / 週六、週日、國定假日（含連假）休息</div>
+                    <div>email：service@justabite.com.tw</div>
+                </div>
+                <div>
+                    <div class="footer-site">Just A BITE!</div>
+                    <div>Facebook / Instagram / Youtube</div>
+                </div>
+            </div>                
+        </div>
+        <div class="footer__bottom">
+            Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有   
+        </div>
+    </footer>
+    <script>
+        const questions = document.querySelectorAll('.question')
+        for (let i = 0; i <questions.length; i++) {
+            questions[i].addEventListener("click", function() {
+            let dropdownContent = document.getElementById(`${i+1}`)
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+            });
+        }
+
+    </script>
+</body>
+</html>
+
