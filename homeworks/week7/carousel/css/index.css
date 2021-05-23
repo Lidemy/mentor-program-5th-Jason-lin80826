@@ -1,0 +1,69 @@
+
+.banner{
+    position: relative;
+    height: 460px;
+    overflow: hidden;
+}
+.img-list{
+    width: 10000px;
+    height: 460px;
+    position: absolute;
+    left: 0px
+}
+.img-list li{
+    float: left;
+    height: 460px;
+}
+.img-list img{
+    /* position: absolute; */
+    width: 1226px;
+    height: 460px;
+}
+.pointer{
+    position: absolute;
+    right: 35px;
+    bottom: 20px;
+}
+.pointer a{
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 50%;
+    border: 2px rgba(255, 255, 255, .4) solid;
+    height: 6px;
+    width: 6px;
+    margin-left: 6px;
+    float: left;
+}
+.pointer a:hover,
+.pointer a.active{
+    border-color: rgba(0, 0, 0, .4);
+    background-color:rgba(255, 255, 255, .4);
+}
+/* 設置箭頭 */
+.prev-next a{
+    width: 41px;
+    height: 69px;
+    background-image: url(../img/icon-slides.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.prev-next .prev{
+    background-position: -84px 0;
+}
+
+.prev-next .prev:hover{
+    background-position: 0 0;
+}
+
+.prev-next .next{
+    right: 0;
+    background-position: -125px 0;
+}
+
+.prev-next .next:hover{
+    background-position: -42px 0;
+}
+
+

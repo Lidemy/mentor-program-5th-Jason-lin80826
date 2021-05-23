@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        .wrapper {
+            width: 450px;
+            margin: 0px auto;
+        }
+        .header {
+            background-color: #f44336;
+            padding: 30px 40px;
+            color: white;
+            text-align: center;
+        }
+        .add input {
+            width: 80%;
+            height: 100%;
+        }
+        .add button {
+            background-color:#d9d9d9;
+            color: #555;
+            width: 15%;
+            border: 0px;
+            cursor: pointer;
+        }
+        .todoList > li{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            background-color: wheat;
+        }
+        .todoList > li:hover {
+            background: #ddd;
+        }
+        .todo > input {
+            height: 23px;
+            width: 23px;
+        }
+        .todo .mark{
+            text-decoration: line-through
+        }
+        .delete {
+            display: block;
+            width: 23px;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+        }
+        .delete:hover {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h2>My todo-list</h2>
+            <div class="add">
+                <input type="text" class="content">
+                <button id='btn'>新增</button>
+            </div>
+        </div>
+        <div class="todoList">
+            <li class="todo">
+                <input type="checkbox" class="input">
+                <span>練習 javascript </span>
+                <a href="javascript:;" class="delete">x</a>
+            </li>
+         </div>
+    </div>
+    <script>
+        const btn = document.getElementById('btn')
+        const todoList = document.querySelector('.todoList')
+        btn.addEventListener('click',function() {
+            const content = document.querySelector('.content').value
+            if (content === '') {
+                alert('請輸入內容')
+                return
+            }
+            const li = document.createElement('li')
+            li.classList.add('todo')
+            li.innerHTML = `<input type="checkbox" class="input">
+            <span>${content}</span>
+            <a href="javascript:;" class="delete">x</a>`
+            todoList.appendChild(li)
+            document.querySelector('.content').value = ''
+        })
+        todoList.addEventListener('click',function(e){
+            if (e.target.classList.contains('input')) {
+                if (e.target.checked) {
+                    e.target.nextSibling.nextSibling.classList.add('mark')
+                } else {
+                    e.target.nextSibling.nextSibling.classList.remove('mark')
+                }
+            }
+            if (e.target.classList.contains('delete')) {
+                todoList.removeChild(e.target.closest('.todo'))
+            }
+        })
+    </script>
+</body>
+</html>
