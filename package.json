@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/Lidemy/mentor-program-5th#readme",
   "devDependencies": {
-    "eslint": "^7.23.0",
     "@lidemy/eslint-config-lidemy": "^1.0.0",
+    "eslint": "^7.27.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "husky": "^6.0.0",
