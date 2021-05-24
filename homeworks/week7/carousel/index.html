@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href=".\css\reset.css">
-    <link rel="stylesheet" href=".\css\base.css">
-    <link rel="stylesheet" href=".\fa\css\all.css">
     <link rel="stylesheet" href=".\css\index.css">
 </head>
 <body>
@@ -55,105 +53,6 @@
         </div>
     </div>
     <script src="./carousel.js">
-        // window.onload =function(){
-        //     change()
-        // }
-        // var box = document.getElementsByClassName('img-list')[0];
-        // var next = document.querySelector('.next');
-        // var prev = document.querySelector('.prev');
-        // var timer =null
-        // var pointer = document.getElementsByClassName('pointer')[0]
-        // var pointers = pointer.getElementsByTagName('a')
-        // var imgcontain = document.getElementById('switch')
-        // var moving = false
-        // var index = 0
-        // var clickindex = 0
-        // if(index === 0){
-        //     prev.style.display = 'none'
-        // }
-        // // 移動的動畫
-        // function move(obj,target,blooen,cb){
-        //     clearInterval(obj.timer)
-        //     if(typeof blooen==="boolean"){
-        //     var leftmove = blooen? -1226 : 1226;
-        //     }else{
-        //         leftmove = (clickindex-index)*-1226
-        //     }
-        //     var leftpersec =  leftmove/10   
-        //     obj.timer = setInterval(function(){
-        //     var current= box.offsetLeft     
-        //     var now  = current + leftpersec
-        //     if(now>target && leftmove>0 || now<target && leftmove<0){
-        //         now=target
-        //     }
-        //     if(now===target){
-        //         clearInterval(obj.timer)
-        //         if(now <=-6130){  //翻到最右邊後要換圖
-        //         now = 0
-        //         }
-        //         cb && cb()
-        //     }
-        //     box.style.left = now + 'px'
-        //    },50)
-        // }
-        // // pointer 綁定事件
-        // for(var i=0 ;i<pointers.length;i++ ){
-        //     // 下標榜給各自的pointer
-        //     pointers[i].number = i
-        //     pointers[i].onclick = function(){
-        //         clearInterval(pointer.timer)
-        //         clickindex = this.number
-        //         move(pointer,clickindex*-1226,clickindex,null)
-        //         setA(false)
-        //     }
-        // }
-        // // 改變pointer 和現在的index 樣式
-        // function change(){
-        //     window.autoTimer = setInterval(function(){
-        //         console.log(index)
-        //         index++
-        //         console.log(index)
-        //         move(box,-1226*index,true,function(){setA(true)}) 
-        //     },3000)
-        // }
-        // function setA(auto){
-        //     if(auto){ 
-        //         for(var i=0 ;i<pointers.length;i++){
-        //             pointers[i].className=''
-        //         }
-        //         if(index >= 5){
-        //             index = 0
-        //         }
-        //         pointers[index].className='active'
-        //     }else{
-        //         for(var i=0 ;i<pointers.length;i++){
-        //             pointers[i].className=''
-        //         }
-        //         pointers[clickindex].className='active'
-        //         index = clickindex
-        //     }
-        //     if(index !== 0){
-        //         prev.style.display = 'block'
-        //     }else{
-        //         prev.style.display = 'none'
-        //     }
-        // }     
-        //     next.onclick = function(){
-        //         clearInterval(window.autoTimer)
-        //         move(box,-1226*(index+1),true,function(){setA(true)})
-        //         index++
-        //     }
-        //     prev.onclick = function(){
-        //         clearInterval(window.autoTimer)
-        //         move(box,-1226*(index-1),false,function(){setA(true)})
-        //         index--
-        //     }
-        //     imgcontain.onmouseover =function(){
-        //         clearInterval(window.autoTimer)
-        //     }
-        //     imgcontain.onmouseout = function(){
-        //         change()
-        //     }
     </script>
 </body>
 </html>

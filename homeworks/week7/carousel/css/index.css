@@ -1,3 +1,14 @@
+a{
+    text-decoration: none;
+    color: #333;
+}
+/* 設置一個類表中間容器寬度 */
+.w{
+    /* 固定容器的寬度 */
+    width: 1226px;
+    /* 設置容器居中 */
+    margin: 0px auto;
+}
 
 .banner{
     position: relative;
