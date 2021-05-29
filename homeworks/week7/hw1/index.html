@@ -35,7 +35,8 @@
       margin-top: 32px;
       font-family: MicrosoftJhengHei;
     }
-    label div span {
+    section p ,
+    div > span{
       color: red;
     }
     .information input {
@@ -56,9 +57,11 @@
       border: 1px solid transparent;  
       outline: none;   
     }
-    .error {
+    label > span {
+      display: block;
+    }
+    .noerror {
       visibility: hidden;
-      color: red;
     }
     @media(max-width:400px){
       .wrapper {
@@ -84,37 +87,36 @@
         <label for="name">
           <div>暱稱: <span>*</span></div>
           <input type="text" id="name" placeholder="您的回答">
-          <p class="error">請輸入暱稱</p>
+          <p class="noerror">請輸入暱稱</p>
         </label> 
         <label for="email">
           <div>電子郵件: <span>*</span></div>
           <input type="text" id="email" placeholder="你的電子郵件">
-          <p class="error">請輸入電子郵件</p>
+          <p class="noerror">請輸入電子郵件</p>
         </label>   
         <label for="phone">
           <div>手機號碼: <span>*</span></div>
           <input type="text" id="phone" placeholder="你的手機號碼">
-          <p class="error">請輸入手機號碼</p>
+          <p class="noerror">請輸入手機號碼</p>
         </label>       
       </section>
       <section>
-        <label for="method">
           <div>報名類型: <span>*</span></div>
-          <input type="radio" class="radio-button" name="mehtod">躺在床上用想像力實作 
+          <input type="radio" class="radio-button" name='type' id="type1"><label for="type1">躺在床上用想像力實作</label> 
           <br>
-          <input type="radio" class="radio-button" name="mehtod">趴在地上滑手機找現成的
-          <p class="error">請選擇</p>
+          <input type="radio" class="radio-button" name='type' id="type2"><label for="type2">趴在地上滑手機找現成的</label>
+          <p class="noerror">請選擇</p>
         </label>    
       </section>
       <section class="information">
         <label for="source">
           <div>怎麼知道這個活動的? <span>*</span></div>
           <input type="text" id="source"  placeholder="您的回答">
-          <p class="error">請輸入</p>
+          <p class="noerror">請輸入</p>
         </label> 
         <label for="other">
           <div>其他</div>
-          <p>對活動的一些建議</p>
+          <span>對活動的一些建議</span>
           <input  id="other" placeholder="您的回答">
         </label>       
       </section>
@@ -124,6 +126,7 @@
   </div>
   <script>
     document.getElementById('myForm').addEventListener('submit',(e) => {
+      console.log(1)
       e.preventDefault()
       let hasError = false
       let result = {}
@@ -132,20 +135,22 @@
       const other = document.getElementById('other').value
       for (input of inputs) {
         if (!input.value) {
-          input.nextSibling.nextSibling.style.visibility = 'visible'
+          input.nextSibling.nextSibling.classList.remove('noerror')
           hasError = true
         } else {
           result[input.id] = input.value
-          input.nextSibling.nextSibling.style.visibility = 'hidden'
+          input.nextSibling.nextSibling.classList.add('noerror')
         }
       }
       if(!radios[0].checked && !radios[1].checked) {
-        radios[0].parentNode.querySelector('p').style.visibility = 'visible'
+        radios[0].parentNode.querySelector('p').classList.remove('noerror')
         hasError = true
       } else {
-        radios[0].parentNode.querySelector('p').style.visibility = 'hidden'
+        radios[0].parentNode.querySelector('p').classList.add('noerror')
         const radio = [...radios].filter(radio => radio.checked)
-        result['報名類型'] = [...radios].indexOf(radio[0])+1
+        const number = [...radios].indexOf(radio[0])+1
+        const label = document.querySelector(`label[for=type${number}]`)
+        result['報名類型'] = label.innerHTML
       }
       result['other'] = other
       if (!hasError) {
