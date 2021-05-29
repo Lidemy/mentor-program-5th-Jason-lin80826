@@ -7,6 +7,9 @@
     <title>餐廳官網</title>
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <style>
+        q {
+            quotes: none;
+        }
         .navbar{
             box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
             padding: 0 20px;
@@ -74,7 +77,6 @@
             margin: 15px auto;
         }
         .questions li{
-            cursor: pointer;
             list-style-type:none;
             font-family: MicrosoftJhengHei;
             font-size: 18px;
@@ -82,7 +84,7 @@
             border-bottom: #a6e2c0 1px solid;
             padding-bottom: 15px;
         }
-        .questions li span {
+        .questions li > span {
             color: #70b282;
             font-family: Questrial;
             font-size: 24px;
@@ -92,6 +94,12 @@
             padding-left: 41px;
             font-family: MicrosoftJhengHei;
             font-size: 16px;
+        }
+        .question > span,
+        .question > q {
+            cursor: pointer;
+        }
+        .question.display > .content{
             display: none;
         }
         footer {
@@ -148,39 +156,39 @@
         </section>
     </div>
     <ul class="questions">
-        <li class="question">
-            <span>Q1:</span> 如何辦理退貨？
-            <div class="content" id='1'>
+        <li class="question display">
+            <span class="targert">Q1:</span><q class="targert">如何辦理退貨？</q>
+            <div class="content ">
                 顧客於商品送達的7天內皆可辦理線上退貨，在完成訂購後15分鐘系統即無法取消訂單。 如您發現無法使用線上退貨申請時，請使用客服信箱或電話連繫客服中心
             </div>
         </li>
-        <li class="question">
-            <span>Q2:</span> 目前提供哪些付款方式？
-            <div class="content" id='2'>
+        <li class="question display">
+            <span class="targert">Q2:</span><q class="targert">目前提供哪些付款方式？</q>
+            <div class="content">
                 基本上都以刷卡為主
             </div>
         </li>
-        <li class="question"> 
-            <span>Q3:</span> 線上刷卡如何操作呢？
-            <div class="content" id='3'>
+        <li class="question display"> 
+            <span class="targert">Q3:</span><q class="targert">線上刷卡如何操作呢？</q>
+            <div class="content">
                 線上刷卡的使用方式也超簡單，只要您確認您當次的購物清單與金額都無誤，就可立即到匯款上傳系統，登入個人帳號密碼後，點選"線上刷卡方式"，確認收件住址後，再進行刷卡確認程序即可～
             </div>
         </li>
-        <li class="question">
-            <span>Q4:</span> 如何查詢目前訂單的處理情況？
-            <div class="content" id='4'>
+        <li class="question display">
+            <span class="targert">Q4:</span><q class="targert">如何查詢目前訂單的處理情況？</q>
+            <div class="content">
                 請點選查詢訂單的按鈕
             </div>
         </li>
-        <li class="question">
-            <span>Q5:</span> 訂單成立後，是否可以取消或是更改訂單數量及商品？
-            <div class="content" id='5'>
+        <li class="question display">
+            <span class="targert">Q5:</span><q class="targert">訂單成立後，是否可以取消或是更改訂單數量及商品？</q>
+            <div class="content">
                 請點取消訂單的按鈕
             </div>
         </li>
-        <li class="question">
-            <span>Q6:</span> 我想購買的商品已經缺貨，什麼時候會進貨呢？
-            <div class="content" id='6'>
+        <li class="question display">
+            <span class="targert">Q6:</span><q class="targert">我想購買的商品已經缺貨，什麼時候會進貨呢？</q>
+            <div class="content">
                 這個狀況不一定
             </div>
         </li>
@@ -205,18 +213,13 @@
         </div>
     </footer>
     <script>
-        const questions = document.querySelectorAll('.question')
-        for (let i = 0; i <questions.length; i++) {
-            questions[i].addEventListener("click", function() {
-            let dropdownContent = document.getElementById(`${i+1}`)
-            if (dropdownContent.style.display === "block") {
-                dropdownContent.style.display = "none";
-            } else {
-                dropdownContent.style.display = "block";
+        const questions = document.querySelector('.questions')
+        questions.addEventListener("click", function(e) {
+            if (e.target.classList.contains('targert')) {
+                const context = e.target.parentNode
+                context.classList.toggle('display')
             }
-            });
-        }
-
+        })
     </script>
 </body>
 </html>
