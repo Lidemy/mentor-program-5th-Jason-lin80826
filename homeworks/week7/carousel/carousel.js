@@ -1,10 +1,13 @@
 const box = document.querySelector('.img-list')
 const next = document.querySelector('.next')
 const prev = document.querySelector('.prev')
-const pointers = document.querySelectorAll('.pointer a')
+const pointers = document.querySelector('.pointer')
+const pointerNode = document.querySelectorAll('.pointer a')
 const carousel = document.getElementById('switch')
+const width = 1226
 let index = 0
 let clickIndex = 0
+let isLoading = false
 if (index === 0) {
   prev.style.display = 'none'
 }
@@ -13,17 +16,18 @@ window.addEventListener('load', () => {
 })
 function autotimer() {
   window.timer = setInterval(() => {
-    move(box, -1226 * (index + 1), true, () => { changeStyle(true) })
+    move(box, -width * (index + 1), true, () => { changeStyle(true) })
     index++
   }, 3000)
 }
 function move(obj, target, boolen, callback) {
-  clearInterval(obj.timer)
+  if (isLoading) return
+  isLoading = true
   let leftmove
   if (typeof boolen === 'boolean') {
-    leftmove = boolen ? -1226 : 1226
+    leftmove = boolen ? -width : width
   } else {
-    leftmove = (clickIndex - index) * -1226
+    leftmove = (clickIndex - index) * -width
   }
   obj.timer = setInterval(() => {
     const letpersec = leftmove / 10
@@ -45,15 +49,15 @@ function move(obj, target, boolen, callback) {
 }
 function changeStyle(auto) {
   if (auto) {
-    for (let i = 0; i < pointers.length; i++) {
-      pointers[i].className = ''
+    for (let i = 0; i < pointerNode.length; i++) {
+      pointerNode[i].className = ''
     }
-    pointers[index].className = 'active'
+    pointerNode[index].className = 'active'
   } else {
-    for (let i = 0; i < pointers.length; i++) {
-      pointers[i].className = ''
+    for (let i = 0; i < pointerNode.length; i++) {
+      pointerNode[i].className = ''
     }
-    pointers[clickIndex].className = 'active'
+    pointerNode[clickIndex].className = 'active'
     index = clickIndex
   }
   if (index !== 0) {
@@ -61,23 +65,29 @@ function changeStyle(auto) {
   } else {
     prev.style.display = 'none'
   }
+  isLoading = false
 }
 next.onclick = () => {
   clearInterval(window.timer)
-  move(box, -1226 * (index + 1), true, () => { changeStyle(true) })
+  index %= 5
+  if (isLoading) return
+  move(box, -width * (index + 1), true, () => { changeStyle(true) })
   index++
 }
 prev.onclick = () => {
+  if (isLoading) return
   clearInterval(window.timer)
-  move(box, -1226 * (index - 1), false, () => { changeStyle(true) })
+  move(box, -width * (index - 1), false, () => { changeStyle(true) })
   index--
+  if (index < 0) {
+    index = 4
+  }
 }
-for (let i = 0; i < pointers.length; i++) {
-  pointers[i].addEventListener('click', () => {
-    clickIndex = i
-    move(box, -1226 * clickIndex, clickIndex, () => { changeStyle(false) })
-  })
-}
+pointers.addEventListener('click', (e) => {
+  const pointer = [...pointerNode]
+  clickIndex = pointer.indexOf(e.target)
+  move(box, -width * clickIndex, clickIndex, () => { changeStyle(false) })
+})
 carousel.onmouseover = () => {
   clearInterval(window.timer)
 }
