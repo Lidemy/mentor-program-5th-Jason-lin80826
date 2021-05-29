@@ -88,9 +88,12 @@
             }
             const li = document.createElement('li')
             li.classList.add('todo')
-            li.innerHTML = `<input type="checkbox" class="input">
-            <span>${content}</span>
-            <a href="javascript:;" class="delete">x</a>`
+            li.innerHTML = 
+            `
+            <input type="checkbox" class="input">
+                <span>${escapeHtml(content)}</span>
+            <a href="javascript:;" class="delete">x</a>
+            `
             todoList.appendChild(li)
             document.querySelector('.content').value = ''
         })
@@ -106,6 +109,14 @@
                 todoList.removeChild(e.target.closest('.todo'))
             }
         })
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
     </script>
 </body>
 </html>
