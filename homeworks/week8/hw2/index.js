@@ -1,11 +1,8 @@
 const gameList = document.querySelector('.game__list')
 const h2 = document.querySelector('h2')
 const btn = document.querySelector('.more')
-const place1 = document.createElement('div')
-const place2 = document.createElement('div')
 const streamList = document.querySelector('.list')
 let offset = 0
-let placeholder = 0
 getGameList()
 function getGameList() {
   const limit = 5
@@ -39,7 +36,6 @@ function getGameData(gameName) {
   }
   const limit = 20
   const request = new XMLHttpRequest()
-  console.log(offset)
   request.open('get', `https://api.twitch.tv/kraken/streams/?client_id=5nim7hdqglhzm7ueuaygfvg4amxu0u&limit=${limit}&game=${gameName}&offset=${offset}`)
   request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
   request.send(null)
@@ -74,30 +70,9 @@ function appendData(streams, gameName) {
     `
     streamList.appendChild(div)
   }
-  place1.innerHTML = `
-  <div class="stream--place"></div>
-  `
-  place2.innerHTML = `
-  <div class="stream--place"></div>
-  `
-  console.log(placeholder)
-  if (placeholder === 0) {
-    console.log(789)
-    streamList.appendChild(place1)
-  } else if (placeholder === 1) {
-    streamList.appendChild(place1)
-    streamList.appendChild(place2)
-  } else if (placeholder === 2) {
-    place1.innerHTML = ''
-    place2.innerHTML = ''
-  } else if (placeholder === 3) {
-    streamList.appendChild(place1)
-  }
 }
 btn.addEventListener('click', () => {
   offset += 20
-  placeholder++
-  placeholder %= 4
   const gameName = h2.innerHTML
   getGameData(gameName)
 })
