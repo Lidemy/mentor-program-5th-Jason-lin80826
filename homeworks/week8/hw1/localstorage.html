@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let loading = false
+    let first = 0
+    let sec = 0
+    let third = 0 
+    let none = 0
+    function request() {
+      if(loading) return
+      let xhr = new XMLHttpRequest()
+      xhr.open('get','https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery') 
+      xhr.send(null)
+      xhr.onload = function() { 
+        loading = true
+          if (xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText); 
+            switch (data.prize) {
+              case 'FIRST':
+                first = localStorage.getItem('first');
+                localStorage.setItem('first',Number(first)+1)
+                break
+              case 'SECOND':
+                sec = localStorage.getItem('sec');
+                localStorage.setItem('sec',Number(sec)+1)
+                break
+              case 'THIRD':
+                third = localStorage.getItem('third')
+                localStorage.setItem('third',Number(third)+1)
+              default:
+                none = localStorage.getItem('none')
+                localStorage.setItem('none',Number(none)+1)
+            }
+            loading = false
+          } else {
+            loading = false
+            return 
+          }
+        }
+    }
+    setInterval(request,1000)
+  </script>  
+</body>
+</html>
