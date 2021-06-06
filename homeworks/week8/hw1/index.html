@@ -290,57 +290,38 @@
         </div>
     </footer>
     <script>
+      const first = 'bg.png'
+      const sec = 'living-room-1872192_1920.jpg'
+      const third = 'youtube-2617510_1920.jpg'
+      const background = document.querySelector('.banner')
+      const informations = document.querySelector('.informations')
+      const awards =  document.querySelector('.awards')
+      let data
       document.getElementById('btn--draw').addEventListener('click',() => {
-        const first = 'bg.png'
-        const sec = 'living-room-1872192_1920.jpg'
-        const third = 'youtube-2617510_1920.jpg'
-        const background = document.querySelector('.banner')
-        const informations = document.querySelector('.informations')
-        const awards =  document.querySelector('.awards')
         let xhr = new XMLHttpRequest()
         xhr.open('get','https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery') 
         xhr.send(null)
         xhr.onload = function() { 
-          if (xhr.status === 200) {
-            const data = JSON.parse(xhr.responseText); 
+          if (200 <= xhr.status && xhr.status < 300) {
+            try {
+              data = JSON.parse(xhr.responseText); 
+            } catch(error) {
+              console.log(error)
+            }
             informations.style.display = 'none'
             const div = document.createElement('div')
             switch (data.prize) {
               case 'FIRST':
-                background.style.background = 'url('+ first +')'
-                div.innerHTML = `<div>
-                                   恭喜你中頭獎了！日本東京來回雙人遊！！
-                                   <div class="draw--result" id='btn--back'>
-                                    我要抽獎
-                                   </div> 
-                                 </div>`
+                prizes(div,first, '恭喜你中頭獎了！日本東京來回雙人遊！！')
                 break
               case 'SECOND':
-                background.style.background = 'url('+ sec +')'
-                div.innerHTML = `<div>
-                                   二獎！90 吋電視一台！！ 
-                                   <div class="draw--result" id='btn--back'>
-                                    我要抽獎
-                                   </div> 
-                                 </div>`
+                prizes(div,sec, '二獎！90 吋電視一台！！') 
                 break
               case 'THIRD':
-                background.style.background = 'url('+ third +')'
-                div.innerHTML = `<div>
-                                  恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！ 
-                                   <div class="draw--result" id='btn--back'>
-                                    我要抽獎
-                                   </div> 
-                                 </div>`
+                prizes(div,third, '恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！')                 
                 break
               default:
-                background.style.background = 'black'
-                div.innerHTML = `<div>
-                                  銘謝惠顧
-                                   <div class="draw--result" id='btn--back'>
-                                    我要抽獎
-                                   </div> 
-                                 </div>`
+                prizes(div,'', '銘謝惠顧') 
             }
             awards.appendChild(div)
             awards.style.display = 'block'
@@ -352,6 +333,19 @@
           }
         }
       })
+      function prizes(div, order, str) {
+        if (order === '') {
+          background.style.background = 'black'
+        } else {
+          background.style.background = 'url('+ order +')'
+        }
+        div.innerHTML = `<div>
+                          ${str}
+                          <div class="draw--result" id='btn--back'>
+                            我要抽獎
+                            </div> 
+                        </div>`
+      } 
     </script>
 </body>
 </html>
