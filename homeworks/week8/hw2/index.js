@@ -13,6 +13,7 @@ function getGameList() {
   request.onload = function() {
     if (this.readyState === 4 && this.status === 200) {
       const games = JSON.parse(request.responseText)
+      const firstGameName = games.top[0].game.name
       for (let i = 0; i < limit; i++) {
         const li = document.createElement('li')
         li.innerText = games.top[i].game.name
@@ -25,6 +26,7 @@ function getGameList() {
         }
         getGameData(gameName)
       })
+      getGameData(firstGameName)
     }
   }
 }
@@ -42,8 +44,10 @@ function getGameData(gameName) {
   request.onload = function() {
     const { streams } = JSON.parse(request.response)
     appendData(streams, gameName)
-    if (h2.innerHTML !== '') {
+    if (!streams.length < limit) {
       btn.style.display = 'block'
+    } else {
+      btn.style.display = 'none'
     }
   }
 }
@@ -53,7 +57,7 @@ function appendData(streams, gameName) {
   for (const stream of streams) {
     const div = document.createElement('div')
     const preimg = stream.preview.medium
-    const { logo } = stream.channel
+    const { logo, status } = stream.channel
     div.innerHTML = `
     <div class="stream">
       <div class="avatar">
@@ -62,7 +66,7 @@ function appendData(streams, gameName) {
         <div class="info">
             <img src="${logo}" alt="">
             <span>
-              <p>${stream.channel.status}</p>
+              <p>${status}</p>
               ${stream.channel.display_name}
             </span>
         </div>
