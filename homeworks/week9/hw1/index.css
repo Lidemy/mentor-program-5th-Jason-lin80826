@@ -1,0 +1,89 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background: #f7f7f7;
+}
+header {
+    background: #ffc4c6;
+    color: #a20606;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.board {
+    width: 50%;
+    background-color: white;
+    margin: 30px auto;
+    padding: 10px 30px;
+    box-shadow: 1px 1px 3px #e8e8e8;
+    border-radius: 5px;
+}
+.board__nickname input {
+    border: 1px solid #c2dffb;
+    padding: 5px;
+    margin-top: 10px;
+}
+textarea {
+    border: 1px solid #c2dffb;
+    width: 100%;
+    margin-top: 5px;
+    resize: none;
+}
+.board__submitbutton {
+    padding: 10px;
+    border: 1px solid #c2dffb;
+    border-radius: 5px;
+    width: 100px;
+    color: #583c63;
+    font-size: 16px;
+    background: white;
+    margin-top: 10px;
+}
+.board__hr {
+    margin: 20px auto;
+    height: 2px;
+    background: #e8e8e8;
+    max-width: 100%;
+}
+.card {
+    display: flex;
+    margin-top: 10px;
+}
+.card__avatar {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #e4f0fb;
+}
+.card__body {
+    margin-left: 10px;
+}
+.card__content {
+    margin-top: 8px;
+    max-width: 100%;
+    word-break: break-word;
+    white-space: pre-line;
+}
+.card__author {
+    color: #5c9edc;
+    font-weight: bold;
+}
+.card__time {
+    color: #a0a0a0;
+}
+.error {
+    color: #a20606;
+}
+.board__btn {
+    padding: 10px 30px;
+    border: 1px solid #c2dffb;
+    border-radius: 5px;
+    color: black;
+    font-size: 16px;
+    background: white;
+    min-width: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
