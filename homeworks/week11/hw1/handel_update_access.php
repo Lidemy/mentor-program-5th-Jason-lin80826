@@ -3,6 +3,13 @@
   require_once('conn.php');
   require_once('utils.php');
 
+  $username = $_SESSION['username'];
+  $access = get_role($username);
+  if($access['is_admin'] !== '1') {
+    header("Location: index.php");
+    die();
+  }
+
   $id = $_POST['id'];
   $role_id = $_POST['role_id'];
   $sql = "SELECT * FROM jason_roles WHERE id = ? ";
