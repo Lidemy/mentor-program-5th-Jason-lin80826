@@ -5,7 +5,7 @@
 
   $id = $_GET['id'];
   $username = $_SESSION['username'];
-  $user= getUserfromUsername($username);
+  $user= get_user($username);
   $access = get_role($username);
   if (
     empty($_GET['id'])
@@ -32,9 +32,6 @@
     $stmt->bind_param('is', $id, $username);
   } 
   $result = $stmt->execute();
-  if (!$result) {
-    die($conn->error);
-  }
 
   header("Location: index.php");
 ?>
