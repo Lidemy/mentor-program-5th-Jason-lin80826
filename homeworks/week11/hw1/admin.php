@@ -6,10 +6,11 @@
   $username = NULL;
   $user = NULL;
   if (!empty($_SESSION['username'])) {
-    $user= getUserfromUsername($_SESSION['username']);
+    $user = get_user($_SESSION['username']);
     $username = $user['username'];
+    $acess = get_role($username);
   }
-  if ($username !== 'admin') {
+  if ($acess['is_admin'] !== '1') {
     header("Location: index.php");
     die();
   }
@@ -50,10 +51,10 @@
                 while($row = $result->fetch_assoc()) {
             ?>  
             <tr>
-                <td><?php echo $row['username']; ?></td>
-                <td><?php echo $row['nickname']; ?></td>
-                <td><?php echo $row['role_id']; ?></td>
-                <td><a href="update_access.php?id=<?php echo $row['id']?>">編輯</a></td>
+                <td><?php echo escape($row['username']); ?></td>
+                <td><?php echo escape($row['nickname']); ?></td>
+                <td><?php echo escape($row['role_id']); ?></td>
+                <td><a href="update_access.php?id=<?php echo escape($row['id'])?>">編輯</a></td>
             </tr>
             <?php } ?>            
         </table>

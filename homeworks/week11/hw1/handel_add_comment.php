@@ -9,7 +9,7 @@
     header('Location: index.php?errCode=1');
     die('資料不齊全');
   }
-  $row = getUserfromUsername($_SESSION['username']);
+  $row = get_user($_SESSION['username']);
   $username = $_SESSION['username'];
   $content = $_POST['content'];
 

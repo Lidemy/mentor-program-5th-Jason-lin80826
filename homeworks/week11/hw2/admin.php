@@ -1,6 +1,8 @@
 <?php
   session_start();
   require_once("conn.php");
+  require_once("utils.php");
+
   if (empty($_SESSION['username'])) {
     header("Location: index.php");
   }
@@ -49,11 +51,11 @@
         <div class="posts">
             <?php while($row = $result->fetch_assoc()) { ?>
                 <div class="admin__header">
-                    <?php echo $row['title'] ?>
+                    <?php echo escape($row['title']) ?>
                     <div class="admin__action">
                             <?php echo $row['create_time'] ?>
-                            <a class="post__action" href="edit_blog.php?id=<?php echo $row['id']?>">編輯</a>
-                            <a class="post__action" href="delete_blog.php?id=<?php echo $row['id']?>">刪除</a>
+                            <a class="post__action" href="edit_blog.php?id=<?php echo escape($row['id'])?>">編輯</a>
+                            <a class="post__action" href="delete_blog.php?id=<?php echo escape($row['id'])?>">刪除</a>
                     </div>
                 </div>
             <?php } ?>

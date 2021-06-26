@@ -12,7 +12,7 @@
   $username = NULL;
   $user = NULL;
   if (!empty($_SESSION['username'])) {
-    $user= getUserfromUsername($_SESSION['username']);
+    $user= get_user($_SESSION['username']);
     $access = get_role($_SESSION['username']);
     $username = $user['username'];
   }
@@ -63,7 +63,7 @@
                     </div>
                     <input type="submit" class="board__submitbutton">
                 </form>
-                <h3>你好!<?php echo $user['nickname']; ?></h3>
+                <h3>你好!<?php echo escape($user['nickname']); ?></h3>
             <?php } ?> 
         </div>
         <h1 class="board__title">Comments</h1>
