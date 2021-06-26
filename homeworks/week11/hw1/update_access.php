@@ -7,8 +7,14 @@
   $username = NULL;
   $user = NULL;
   if (!empty($_SESSION['username'])) {
-    $user= getUserfromUsername($_SESSION['username']);
+    $user= get_user($_SESSION['username']);
     $username = $user['username'];
+    $access = get_role($username);
+  }
+
+  if($access['is_admin'] !== '1') {
+    header("Location: index.php");
+    die();
   }
   
   $sql = 'SELECT * FROM jason_users WHERE id = ?';
