@@ -152,7 +152,7 @@ $(document).ready(() => {
           todoList.append(`
                     <div class='todo-item mt-3 '>
                         <input type='checkbox' checked>
-                        <span class='mark'>${todo.text}</span>
+                        <span class='mark'>${escape(todo.text)}</span>
                         <input class='edit-text hidden' type='text'>
                         <div class='action'>
                             <button type='button' class='btn btn-success edit'>編輯</button>
@@ -164,7 +164,7 @@ $(document).ready(() => {
           todoList.append(`
                     <div class='todo-item mt-3 '>
                         <input type='checkbox' >
-                        <span>${todo.text}</span>
+                        <span>${escape(todo.text)}</span>
                         <input class='edit-text hidden' type='text'>
                         <div class='action'>
                             <button type='button' class='btn btn-success edit'>編輯</button>
