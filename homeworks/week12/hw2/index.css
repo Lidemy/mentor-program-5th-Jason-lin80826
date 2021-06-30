@@ -3,6 +3,13 @@
     justify-content: space-between;
     align-items: center;
 }
+.todo-nav {
+    display: flex;
+    justify-content: space-between;
+}
+.todo-nav>div {
+    display: flex;
+}
 .mark{
     text-decoration: line-through
 }
