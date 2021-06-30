@@ -9,11 +9,15 @@ $(document).ready(() => {
   }
 
   let isEditing = false
+  let isLoading = false
   let state = 'all'
+  let uncompleted
   const todoList = $('.todo-list')
+  getStatus()
   // 新增todo
   $('#button-addon2').click(() => {
     const inputValue = $('.form-control').val()
+    if (!inputValue) return
     const todoItem = `                
     <div class='todo-item mt-3 '>
         <input type='checkbox' >
@@ -26,6 +30,7 @@ $(document).ready(() => {
     </div>`
     todoList.append(todoItem)
     $('.form-control').val('')
+    getStatus()
   })
   // 標記todo
   todoList.on('click', 'input[type=checkbox]', (e) => {
@@ -35,6 +40,7 @@ $(document).ready(() => {
   // 刪除todo
   todoList.on('click', '.btn-danger', (e) => {
     $(e.target).parent().parent().remove()
+    getStatus()
   })
   // 編輯todo
   todoList.on('click', '.edit', (e) => {
@@ -63,8 +69,13 @@ $(document).ready(() => {
   $('.delete-alltask').click((e) => {
     e.preventDefault()
     todoList.html('')
+    getStatus()
   })
   function getStatus(state) {
+    const checkboxs = $('input[type=checkbox]')
+    uncompleted = checkboxs.not(':checked').length
+    console.log(uncompleted)
+    $('.uncompleted').text(uncompleted)
     const allTodoItem = $('.todo-item')
     allTodoItem.children('span').parent().show()
     if (state === 'active') {
@@ -118,6 +129,8 @@ $(document).ready(() => {
     })
   })
   $('.load').click(() => {
+    if (isLoading) return
+    isLoading = true
     const token = $('#token-name').val()
     const data = { token }
     $.ajax({
@@ -126,7 +139,7 @@ $(document).ready(() => {
       type: 'POST',
       data
     }).done((data) => {
-      console.log(data)
+      isLoading = false
       if (!data.ok) {
         alert(data.message)
         return
@@ -161,6 +174,7 @@ $(document).ready(() => {
                 `)
         }
       }
+      getStatus()
     })
   })
 })
