@@ -63,6 +63,8 @@
             }
             $('.add-comment-form').submit((event)=>{
                 event.preventDefault()
+                if (isLoading) return
+                isLoading = true
                 const inputData = {
                     site_key: 'jason',
                     nickname: $('#nickname').val(),
@@ -73,6 +75,7 @@
                     type: "POST",
                     data: inputData,
                 }).done((data)=>{
+                    isLoading = false
                     if(!data.ok) {
                         alert(data.message)
                         return
