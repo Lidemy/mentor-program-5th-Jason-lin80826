@@ -3,9 +3,7 @@
     header('Content-Type: application/json; charset=utf-8');
     header('Access-Control-Allow-Origin: *');
 
-    if (
-        empty($_POST['token'])
-    ) {
+    if (empty($_POST['token'])) {
         $json = array(
             "ok" => false ,
             "message" => "請輸入token"

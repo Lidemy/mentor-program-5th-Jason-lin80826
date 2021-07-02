@@ -68,8 +68,9 @@ $(document).ready(() => {
   // 清空todo
   $('.delete-alltask').click((e) => {
     e.preventDefault()
-    todoList.html('')
-    getStatus()
+    const allTodoItem = $('.todo-item')
+    allTodoItem.children('span.mark').parent().remove()
+    state === 'completed' ? getStatus('completed') : getStatus()
   })
   function getStatus(state) {
     const checkboxs = $('input[type=checkbox]')
@@ -105,11 +106,7 @@ $(document).ready(() => {
     const todoitems = allTodoItem.children('span')
     $.each(todoitems, (index, value) => {
       const todoObject = {}
-      if (value.classList.contains('mark')) {
-        todoObject.mark = '1'
-      } else {
-        todoObject.mark = '0'
-      }
+      todoObject.mark = value.classList.contains('mark') ? '1' : '0'
       todoObject.text = value.innerHTML
       todos.push(todoObject)
     })
