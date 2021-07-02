@@ -3,9 +3,7 @@
     header('Content-Type: application/json; charset=utf-8');
     header('Access-Control-Allow-Origin: *');
     
-    if (
-        empty($_GET['site_key'])
-    ) {
+    if (empty($_GET['site_key'])) {
         $json = array(
             "ok" => false ,
             "message" => "Pleaes input sitekey"
