@@ -13,9 +13,7 @@
         return $s;
     }    
 
-    if (
-        !isset($input['todos'])
-    ) {
+    if (!isset($input['todos'])) {
         $json = array(
             "ok" => false ,
             "message" => "Pleaes input missing fields"
