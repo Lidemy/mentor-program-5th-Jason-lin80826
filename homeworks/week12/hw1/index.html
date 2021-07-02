@@ -83,13 +83,13 @@
                     $('#nickname').val('')
                     $('#content').val('')
                     $('.comments').prepend(
-                            `<div class="card mt-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">${escape(inputData.nickname)}</h5>
-                                    <p class="card-text">${escape(inputData.content)}</p>
-                                </div>
-                            </div>`                       
-                        )
+                        `<div class="card mt-3">
+                            <div class="card-body">
+                                <h5 class="card-title">${escape(inputData.nickname)}</h5>
+                                <p class="card-text">${escape(inputData.content)}</p>
+                            </div>
+                        </div>`                       
+                    )
                 })
             }) 
             document.onscroll = function(){
