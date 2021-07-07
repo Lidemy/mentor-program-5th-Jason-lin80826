@@ -26,7 +26,10 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "husky": "^6.0.0",
-    "lint-staged": "^10.5.4"
+    "jquery": "^3.6.0",
+    "lint-staged": "^10.5.4",
+    "webpack": "^5.42.1",
+    "webpack-cli": "^4.7.2"
   },
   "dependencies": {
     "request": "^2.88.2",
