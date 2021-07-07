@@ -75,23 +75,23 @@ $(formSelector).submit((event) => {
   })
   $(document).ready(() => {
     $(commentsSelector).scroll(() => {
-	    if ($(commentsSelector).scrollTop() + $(commentsSelector).height() > $(commentsSelector).outerHeight() - 30) {
-		  if (!isLoading && !isDone) {
-			  page++
-			  getAllComments(isLoading, apiUrl, siteKey, page, (data) => {
-				  if (!data.ok) {
-					  alert(data.message)
-					  return
-				  }
-				  const comments = data.discussions
-				  appendComments(commentsSelector, comments, (responseCount) => {
-					  if (responseCount === 0) {
-						  isDone = true
-					  }
-				  })
-			  })
-		   }
-	    }
+      if ($(commentsSelector).scrollTop() + $(commentsSelector).height() > $(commentsSelector).outerHeight() - 30) {
+        if (!isLoading && !isDone) {
+          page++
+          getAllComments(isLoading, apiUrl, siteKey, page, (data) => {
+            if (!data.ok) {
+              alert(data.message)
+              return
+            }
+            const comments = data.discussions
+            appendComments(commentsSelector, comments, (responseCount) => {
+              if (responseCount === 0) {
+                isDone = true
+              }
+            })
+          })
+        }
+      }
     })
   })
 }
