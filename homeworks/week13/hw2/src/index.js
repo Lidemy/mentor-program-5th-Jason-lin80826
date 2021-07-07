@@ -80,14 +80,14 @@ $(formSelector).submit((event) => {
 			  page++
 			  getAllComments(isLoading, apiUrl, siteKey, page, (data) => {
 				  if (!data.ok) {
-					 alert(data.message)
-					 return
+					  alert(data.message)
+					  return
 				  }
 				  const comments = data.discussions
 				  appendComments(commentsSelector, comments, (responseCount) => {
-					 if (responseCount === 0) {
-						 isDone = true
-					 }
+					  if (responseCount === 0) {
+						  isDone = true
+					  }
 				  })
 			  })
 		   }
