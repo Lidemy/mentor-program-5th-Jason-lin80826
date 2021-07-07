@@ -89,7 +89,7 @@ $(formSelector).submit((event) => {
 						 isDone = true
 					 }
 				  })
-				})
+			  })
 		   }
 	    }
     })
