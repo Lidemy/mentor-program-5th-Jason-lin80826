@@ -1,0 +1,196 @@
+* {
+    font-family: MicrosoftJhengHei;
+}
+.error {
+    color: #a20606;
+}
+a {
+    text-decoration:none;
+    color: #787878;
+}
+li > a {
+    display: block;
+}
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    .nav__right {
+        margin-right: 100px;
+        ul {
+            display: flex;
+            line-height: 64px;    
+        }
+    }
+
+    .nav__left > ul {
+        display: flex;
+        line-height: 64px;
+        #first {
+            font-size: 28px;
+            font-weight: bold;
+            color: black;
+        }
+    }   
+
+    li {
+        list-style:none;
+        margin-left: 30px;
+        color: #787878;
+        border-radius: 10px;
+        &:hover {
+            cursor: pointer;
+            background-color: darkgrey;
+            color: white;
+        }
+    }       
+}
+
+.banner {
+    background-image: linear-gradient(to top, #000000, #434343);
+    height: 250px;
+    width: 100%;
+    padding-top: 40px;
+    box-sizing: border-box;
+    
+    div {
+        color: white;
+
+        &:nth-child(1) {
+            font-size: 36px;
+            margin: 0px auto;
+            width: 20%;
+            text-align: center;
+        }
+
+        &:nth-child(2) {
+            font-size: 14px;
+            margin: 20px auto;
+            width: 15%;
+            text-align: center;
+        }
+    }
+}
+.blogs__container {
+    min-height: calc(100% - 50px); 
+
+    .posts {
+        position: relative;
+        background-color: white;
+        width: 60vw;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50px);
+        padding: 10px;
+        min-height: calc(60vh - 30px); 
+
+        .post {
+            padding: 10px;
+            margin-top: 20px;
+            border: solid 1px #9a9a9a;
+            width: 100%;
+            box-sizing: border-box;
+            &__header {
+                display: flex;
+                justify-content: space-between;
+                padding-right: 20px;
+            }
+
+            &__action {
+                border: solid 1px #a8a8a8;
+                color: #a8a8a8;
+                font-size: 18px;
+            }
+
+            &__info {
+                background-color: #eeeeee;
+                margin: 10px 0;
+            }
+
+            &__content {
+                word-break: break-word;
+                line-height: 30px;
+            }
+
+            .btn-read-more{
+                border: solid 1px #737373;
+                text-decoration:none;
+                color: #000000;
+                width: 10%;
+                text-align: center;
+                margin-top: 20px;
+                height: 30px;
+                display: block;
+                line-height: 32px;
+            } 
+
+            .add__input input {
+                width: 100%;
+                box-sizing:border-box;
+                height: 25px;
+                margin: 20px 0px;
+            }
+
+            #editor {
+                margin-top: 30px;
+            }
+
+            .add__submitbutton {
+                border: solid 1px #737373;
+                margin-top: 40px;
+                cursor: pointer;
+                width: 80px;
+                height: 40px;
+            }
+
+            .hidden {
+                overflow: hidden;
+                text-overflow:ellipsis;
+                height: 200px;
+            }
+        }
+    }
+}
+
+
+
+.paginator {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+
+    a {
+        text-decoration: none;
+        color: #737373;
+        border: 1px solid #737373;
+        padding: 10px;
+    }
+
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #fefefe;
+    background-color: #323232;
+    margin-top: 50px;
+}
+
+
+.ck-editor__editable_inline {
+    min-height: 400px;
+}
+
+.admin__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+    border-bottom: 2px #9a9a9a solid;
+    height: 50px;
+    margin-left: 10px;
+    .admin__action a{
+        margin: 0px 10px;
+    }
+}
