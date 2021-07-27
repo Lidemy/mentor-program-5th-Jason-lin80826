@@ -33,3 +33,13 @@ XSS 全名為 Cross-Site-Scripting，利用 input 欄位可以輸入內容的特
 ####防範方法:
 過濾或替換特殊字元，例如 PHP 的 htmlentities() 跟 htmlspecialchars()，使特殊字元可以正確的被解析。
 ## 請說明 CSRF 的攻擊原理以及防範方法
+
+CSRF 是一種 Web 上的攻擊手法，全稱是 Cross Site Request Forgery，跨站請求偽造。假設今天有個轉帳的網址叫做`https://transfer?to_user=huli&money=100`，發送請求便會給 huli 100 元，如果使用者在沒有登出的情況下點了另外一個網頁他的 html 中有一個圖片的標籤為`<img src="https://transfer?to_user=jason&money=1000" />`，由於使用者再會轉帳的這個網站中並沒有登出，所以瀏覽器的 cookie 依然保有著他的 SESSION_ID 當他瀏覽了有上述 img 標籤的網站，瀏覽器所發出的 request 是會通過後端的驗證的，便會在不知情的情況下變成轉給 jason 1000元，如果改用 POST 方法一樣可以用一個 FORM 表單來達到相同效果。
+
+####防範方法:
+1. 加上圖形驗證碼、簡訊驗證碼
+2. 加上 CSRF token :
+假設你的 server 支持 cross origin 的 request，會發生什麼事呢？攻擊者就可以在他的頁面發起一個 request，順利拿到這個 csrf token 並且進行攻擊
+3. same site cookie: 
+瀏覽器驗證是否從同一個 site 發出的 request，如果不是就不會帶上 Cookie
+
