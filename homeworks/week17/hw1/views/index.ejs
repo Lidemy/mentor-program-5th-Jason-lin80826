@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./template/header') %>
+    <title>blog</title>
+</head>
+<body>
+    <nav class="header__nav">
+        <div class="nav__left">
+          <ul>
+              <li id="first"><a href="/">Who's Blog</a></li>
+              <li><a href="/list">文章列表</a></li>
+              <li>分類專區</li>
+              <li>關於我</li>
+          </ul>
+        </div>
+        <div class="nav__right">
+            <ul>
+              <% if(roleId === 1) { %>
+                <li><a href="/admin">管理後臺</a></li> 
+                <li><a href="/add">新增文章</a></li>
+              <% } %>    
+              <% if(username) { %> 
+                <li><a href="/logout">登出</a></li>
+              <% } else { %>  
+                <li><a href="/login">登入</a></li>
+              <% } %>    
+            </ul>
+        </div>
+    </nav>
+    <section class="banner">
+            <div>存放技術之地</div>
+            <div>Welcome to my blog</div>
+    </section>
+    <div class="blogs__container">
+        <div class="posts">
+          <% posts.forEach((post) => { %>
+           <article class="post">
+                <div class="post__header">
+                  <%- post.title %> 
+                </div>
+                <div class="post__info">
+                  <%= moment(post.createdAt).format('MMMM Do YYYY, h:mm:ss a') %>
+                </div>
+                <div class="post__content hidden">
+                  <%- post.content %>
+                </div>  
+                <a class="btn-read-more" href="#">READ MORE</a>
+           </article>
+          <% }) %>     
+        </div>
+      </div>
+      <div class="paginator">
+              <% if(page !== 1) { %>               
+                <a href="/page/<%= Number(page) - 1 %>">上一頁</a>  
+              <% } %> 
+              <% if(page !== totalPage) { %> 
+                <a href="/page/<%= Number(page) + 1 %>">下一頁</a>
+              <% } %>   
+      </div>
+      <footer>
+        Copyright © 2020 Who's Blog All Rights Reserved.
+      </footer> 
+</body>
+<script>
+const posts = document.querySelector('.posts')
+posts.addEventListener('click', (event) => {
+    if(event.target.classList.contains('btn-read-more')) {
+        event.preventDefault()
+        if (event.target.innerText === 'READ MORE' && event.target.previousSibling.previousSibling.scrollHeight > '200' ) {
+            event.target.previousSibling.previousSibling.classList.remove("hidden") 
+            event.target.innerText = '收起來'     
+        } else if (event.target.innerText === '收起來'){
+            event.target.previousSibling.previousSibling.classList.add("hidden") 
+            event.target.innerText = 'READ MORE'     
+        }
+    }
+})
+</script>
+</html>
