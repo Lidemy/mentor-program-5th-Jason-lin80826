@@ -3,4 +3,3 @@ conn.php
 config/ 
 .DS_STORE
 .eslintcache
-/*.env
