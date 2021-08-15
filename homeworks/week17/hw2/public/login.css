@@ -1,0 +1,46 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: MicrosoftJhengHei;
+}
+.wrapper {
+  width: 25vw;
+  height: 40vh;
+  padding: 73px;
+  border: solid 1px #000000;
+  background-color: var(--white);
+  margin: 200px auto;
+}
+.blogs__login {
+  width: 100%;
+  height: 100%;
+}
+h2 {
+  margin: 0px auto;
+  width: 33%;
+  text-align: center;
+  font-size: 32px;
+}
+.login__input  {
+  margin-top:20px;
+}
+.login__input p{
+  font-size: 14px;
+  margin-left: 5px;
+}
+.login__input input{
+  width: 100%;
+  height: 30px;
+  margin-top:10px;
+}
+.blog__submitbutton {
+  width: 100%;
+  height: 10%;
+  margin-top: 100px;
+  background-image: linear-gradient(to top, red, red);
+  color: white;  
+  cursor: pointer;
+}
+.error {
+  color: red;
+}
