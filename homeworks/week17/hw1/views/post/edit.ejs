@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../template/header') %>
+    <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+    <title>blog</title>
+</head>
+<body>
+  <nav class="header__nav">
+    <%- include('../template/nav') %>
+  </nav>
+    <section class="banner">
+            <div>存放技術之地</div>
+            <div>Welcome to my blog</div>
+    </section>
+    <div class="blogs__container">
+        <div class="posts">
+           <article class="post">
+            <form action="/handleEdit/<%- post.id %>" method='POST' class="blogs__login">
+                    <div class="post__header">
+                    <div>發表文章: </div>
+                    </div>  
+                    <div class="add__input">
+                        <input type="text" value="<%= post.title %>" name="title">
+                        <!-- <input type="hidden" name='id' value="<%-  //post.id %>"> -->
+                    </div>
+                    <textarea name="content" id="editor"><%-  post.content %></textarea>
+                    <input type="submit" class="add__submitbutton" value ="修改文章">
+                    <%= errorMessage %> 
+                </form>  
+                <script>
+                        ClassicEditor
+                            .create( document.querySelector( '#editor' ) )
+                            .catch( error => {
+                                console.error( error );
+                            } );
+                </script>  
+           </article>     
+        </div>
+    </div>    
+    <footer>
+      Copyright © 2020 Who's Blog All Rights Reserved.
+    </footer> 
+</body>
+</html>

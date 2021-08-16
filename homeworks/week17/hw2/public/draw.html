@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽 nba 球員啦</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="./draw.css"> 
+</head>
+<body>
+    <nav class='navbar'>
+        <div class="wrapper">
+            <div class="navbar__logo">
+                抽抽 nba 
+            </div>
+            <ul class="navbar__list">
+                <li class="active"><a href="#">抽個大獎</a></li>
+                <li><a href="#">我要點餐</a></li>
+                <li><a href="#">查詢訂單</a></li>
+                <li><a href="#">常見問題</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class='banner'>
+        <div class="awards"></div>
+        <div class="informations">
+          <h3>2020 夏日輕盈特賞！ 抽獎活動辦法</h3>
+          <div class="info">
+            <span>活動期間：</span>      
+            <span>
+              2020/06/01~2020/07/01
+            </span>
+          </div>
+          <div class="info">
+            <span>活動說明：</span>      
+            <span>
+              今天老闆佛心來著決定給大家發獎勵，有看有機會，抽到自己喜歡的 NBA 球員啦
+            </span>
+          </div>
+          <div class="info">
+            <span>獎  品：</span>      
+            <span>
+              你抽了就知道有啥了
+            </span>
+          </div>
+          <div class="draw" id='btn--draw'>
+            我要抽獎
+          </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer__top">
+            <div class="wrapper">
+                <div class="footer_info">
+                    <div>餐館地址: 天上地下天堂路三分之一里六段520號</div>
+                    <div>訂位專線：02-1314-5566</div>
+                    <div>營業時間：週一〜週五 09:00~18:00 / 週六、週日、國定假日（含連假）休息</div>
+                    <div>email：service@justabite.com.tw</div>
+                </div>
+                <div>
+                    <div class="footer-site">NBA TOP SHOT</div>
+                    <div>Facebook / Instagram / Youtube</div>
+                </div>
+            </div>                
+        </div>
+        <div class="footer__bottom">
+            Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有   
+        </div>
+    </footer>
+    <script>
+      const background = document.querySelector('.banner')
+      const informations = document.querySelector('.informations')
+      const awards =  document.querySelector('.awards')
+      let result
+      document.getElementById('btn--draw').addEventListener('click',async () => {
+        try {
+          const data = await fetch('https://express-draw.herokuapp.com/getPrize')
+          result = await data.json()
+        } catch (error) {
+          console.log(error)
+        }
+        console.log(result)
+        informations.style.display = 'none'
+        const div = document.createElement('div')
+        prizes(div,result.Url, result.content)
+        awards.appendChild(div)
+        awards.style.display = 'block'
+        document.getElementById('btn--back').addEventListener('click', () => {
+          window.location.reload();
+        })
+      })
+      function prizes(div, order, str) {
+        background.style.background = 'url('+ order +')'
+        div.innerHTML = `<div>
+                          ${str}
+                          <div class="draw--result" id='btn--back'>
+                            我要抽獎
+                            </div> 
+                        </div>`
+      } 
+    </script>
+</body>
+</html>
