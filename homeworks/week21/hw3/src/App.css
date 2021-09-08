@@ -1,0 +1,68 @@
+.wrapper {
+  background-color: white;
+  width: 625px;
+  margin: 129px auto;
+  border-top: #fad312 8px solid;
+  box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+  padding: 54px 298px 35px 39px;
+}
+h1,h2,h3,p {
+  font-family: MicrosoftJhengHei;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 14px;
+}
+h3 {
+  font-size: 16px;
+  color: red;
+}
+p {
+  font-size: 14px;
+}
+label div {
+  font-size: 20px;
+  margin-top: 32px;
+  font-family: MicrosoftJhengHei;
+}
+section p ,
+div > span{
+  color: red;
+}
+.information input {
+  width: 287px;
+  height: 23px;
+  margin-top: 20px;
+}
+.radio-button {
+  margin-top: 23px;
+  font-size: 14px;
+}
+.button {
+  margin-top: 50px;
+  width: 92px;
+  height: 40px;
+  background-color: #fad312;
+  border-radius: 3px;
+  border: 1px solid transparent;  
+  outline: none;   
+}
+label > span {
+  display: block;
+}
+.noError {
+  visibility: hidden;
+}
+@media(max-width:400px){
+  .wrapper {
+    background-color: white;
+    width: 625px;
+    height: 1085px;
+    margin: 129px auto;
+    border-top: #fad312 8px solid;
+    box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+    padding: 54px 298px 40px 39px;
+  }
+}

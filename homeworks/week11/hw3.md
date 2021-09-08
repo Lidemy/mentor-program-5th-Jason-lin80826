@@ -42,4 +42,3 @@ CSRF 是一種 Web 上的攻擊手法，全稱是 Cross Site Request Forgery，�
 假設你的 server 支持 cross origin 的 request，會發生什麼事呢？攻擊者就可以在他的頁面發起一個 request，順利拿到這個 csrf token 並且進行攻擊
 3. same site cookie: 
 瀏覽器驗證是否從同一個 site 發出的 request，如果不是就不會帶上 Cookie
-
