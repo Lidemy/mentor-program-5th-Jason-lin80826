@@ -1,0 +1,60 @@
+@import '~antd/dist/antd.css';
+
+
+#components-layout-demo-fixed .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+h1{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.site-layout .site-layout-background {
+  background: #fff;
+}
+.ant-list-item-meta-title {
+  margin-bottom: 4px;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 30px;
+  line-height: 1.5715;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#nest-messages_post_content {
+  height: 300px;
+}
+.post {
+  padding: 10px;
+  margin-top: 20px;
+  border: solid 1px #9a9a9a;
+  width: 100%;
+  box-sizing: border-box;
+}
+.post__header {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+}
+.post__header > h1 {
+  font-size: 40px;
+}
+.post__action {
+  border: solid 1px #a8a8a8;
+  color: #a8a8a8;
+  font-size: 18px;
+}
+.post__info {
+  background-color: #eeeeee;
+  margin: 10px 0;
+}
+.post__content {
+  font-size: 20px;
+  word-break: break-word;
+  line-height: 30px;
+}
