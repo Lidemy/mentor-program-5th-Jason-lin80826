@@ -22,11 +22,6 @@ function App() {
   const [input, setInput] = useState('');
   const id = useRef(0);
 
-  // const handleAdd = () => {
-  //   if (!inputEl.current.value) {
-  //     return alert('請輸入內容');
-  //   }
-
   return (
     <>
       <div className="App">
